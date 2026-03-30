@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jarurat Care - Patient Support and Volunteer Registration portal.">
+    <title>Jarurat Care | Mini Healthcare Support</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <header class="glass-header">
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i> Jarurat Care
+        </div>
+        <nav>
+            <a href="#home" class="nav-link active" data-target="home-view">Home</a>
+            <a href="#services" class="nav-link" data-target="services-view">Services</a>
+            <a href="#support" class="nav-link" data-target="support-view">Support</a>
+            <a href="#setup" class="nav-link" data-target="setup-view"><i class="fa-solid fa-gear"></i> Bot Setup</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Home View -->
+        <section id="home-view" class="tab-view active-view">
+            <div class="hero">
+                <h1>Healthcare Support & Registration</h1>
+                <p>Join our volunteer network or reach out for patient support. We are here to help you navigate your healthcare journey with ease and compassion.</p>
+            </div>
+        </section>
+
+        <!-- Services View -->
+        <section id="services-view" class="tab-view hidden-view">
+            <div class="glass-card full-width-card">
+                <h2><i class="fa-solid fa-stethoscope"></i> Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-box">
+                        <i class="fa-solid fa-video"></i>
+                        <h3>Telemedicine</h3>
+                        <p>Access certified doctors from the comfort of your home.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="fa-solid fa-brain"></i>
+                        <h3>Mental Health</h3>
+                        <p>Confidential online therapy and emotional support resources.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="fa-solid fa-truck-medical"></i>
+                        <h3>Care Routing</h3>
+                        <p>Direct assistance to find the specific medical help you need locally.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support View -->
+        <section id="support-view" class="tab-view hidden-view">
+            <div class="glass-card form-container margin-auto support-card-premium">
+                <div class="form-header">
+                    <h2><i class="fa-solid fa-clipboard-user heading-icon"></i> Registration & Request</h2>
+                    <p>Fill out the details below and we will get back to you.</p>
+                </div>
+                <form id="support-form">
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="request-type">Request Type</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-list-check"></i>
+                            <select id="request-type" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="patient_support">Patient Support</option>
+                                <option value="volunteer_registration">Volunteer Registration</option>
+                                <option value="general_inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="message">Details</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fa-solid fa-message"></i>
+                            <textarea id="message" rows="4" placeholder="How can we assist you or how would you like to volunteer?" required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn pulse-glow">
+                        <span>Submit Request</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <div id="form-success" class="hidden">
+                        <i class="fa-solid fa-circle-check"></i> Request submitted successfully!
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Bot Setup View -->
+        <section id="setup-view" class="tab-view hidden-view">
+            <div class="glass-card full-width-card">
+                <div class="setup-header">
+                    <h2><i class="fa-solid fa-gears"></i> Chatbot Knowledge Setup</h2>
+                </div>
+                <div class="setup-content">
+                    <p class="setup-desc">Configure the AI chatbot's knowledge base and responses below.</p>
+                    <div id="faq-list" class="faq-list">
+                        <!-- Knowledge items will be injected here via JS -->
+                    </div>
+                    
+                    <div class="add-faq-box">
+                        <h4>Add New Knowledge Rule</h4>
+                        <input type="text" id="new-keywords" placeholder="Keywords (comma separated, e.g. sick, doctor, appointment)">
+                        <textarea id="new-response" rows="2" placeholder="Bot Response..."></textarea>
+                        <button id="add-rule-btn" class="secondary-btn"><i class="fa-solid fa-plus"></i> Add Rule</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AI Chatbot Concept -->
+    <div class="chatbot-container">
+        <button id="chatbot-toggle" class="chatbot-toggle shadow-glow pulse-glow" aria-label="Open AI Assistant">
+            <i class="fa-solid fa-robot"></i> <span>Need Help?</span>
+        </button>
+        
+        <div id="chatbot-window" class="chatbot-window glass-card hidden">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <div class="bot-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="bot-info">
+                        <strong>Jarurat Care AI</strong>
+                        <span class="online-status">● Online</span>
+                    </div>
+                </div>
+                <button id="chatbot-close" aria-label="Close Assistant"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    Hello! I'm Jarurat Care, your AI healthcare assistant. How can I help you today? You can ask me about our volunteer program, patient support, or general FAQs.
+                </div>
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chat-input" placeholder="Type your question..." aria-label="Chat input">
+                <button id="send-chat" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
